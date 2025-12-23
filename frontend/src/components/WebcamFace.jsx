@@ -46,14 +46,7 @@ const WebcamFace = ({ onDetect }) => {
             allPredictions: prediction.all_predictions,
           });
 
-          await kirimAbsensi({
-            nama: label,
-            image: imageSrc,
-            confidence: prediction.confidence,
-            waktu: new Date().toISOString(),
-          });
-
-          onDetect(label);
+          onDetect(label, imageSrc);
         } else {
           setError(response.error || "Deteksi wajah gagal");
         }
